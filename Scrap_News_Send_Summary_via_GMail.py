@@ -40,9 +40,7 @@ def get_news_content_FAZ():
             for each_paragraph in next_soup.find_all(class_='atc-TextParagraph'):
                 #temp = []
                 output.append(each_paragraph.text.replace("\n", " ").strip())
-                temp = each_paragraph.text.replace("\n", " ").strip()
-                output.append(MyTextSummerizer.generate_summary(temp))         
-    
+
     return '\n'.join(output)
 
 
