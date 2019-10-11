@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Thu Aug 15 14:36:53 2019
-
+Created on Thu Aug 15 14:36:53 2018
 @author: david
 """
 ### Get news
@@ -93,71 +92,6 @@ def get_news_content_SZ():
     return '\n'.join(output[20:-40])
 
 
-'''
-url2 = 'http://www.sz.de'
-r2 = requests.get(url2)
-
-soup2 = BeautifulSoup(r2.text)
-for headline2 in soup2.find_all(class_="sz-teaser__title"): 
-    #if headline2.a: 
-    #print(headline2.a.text.replace("\n", " ").strip())
-    #else: 
-    print(headline2.contents[0].strip())
-
-url = 'http://www.sz.de'
-r = requests.get(url)
-soup = BeautifulSoup(r.text, "lxml")
-output = []
-## Get Title + HyperLinks
-        #output.append(link.get('title'))
-        #output.append(link.get('href'))
-
-url = 'http://www.sz.de'
-r = requests.get(url)
-soup = BeautifulSoup(r.text, 'lxml')
-output = []
-for single_article in soup.find_all(class_='sz-teaserlist-element sz-teaserlist-element--separator-line'):
-    liste = {title.contents[0] : link.get('href')
-            for title in single_article.findAll('h3')
-            for link in single_article.findAll('a')}
-                
-    for single_url in liste:
-        output.append('\n')
-        output.append(single_url)
-        output.append(' ')
-        output.append(liste[single_url])
-        
-        next_url = requests.get(liste[single_url])
-        next_soup = BeautifulSoup(next_url.text, 'lxml
-
-
-url = 'http://www.faz.de'
-r = requests.get(url)
-soup = BeautifulSoup(r.text, 'lxml')
-output = []
-for single_article in soup.find_all(class_='tsr-Base_ContentWrapperInner teaserInner linkable'):
-    liste = {link.get('title') : link.get('href') for link in single_article.findAll('a')}
-
-
-
-url_requested = request.urlopen('http://www.heise.de')
-if 200 == url_requested.code:
-    html_content = str(url_requested.read())') 
-        for paragraph in next_soup.find_all('p'): 
-             output.append(paragraph.text[30:-30]) 
-   
-    print(paragraph.text) 
-
-for paragraph in next_soup.find_all('articleBody'):
-    print('>.*?<', paragraph.text) 
-#    print(paragraph.text.replace("\n", " ").strip()) 
-
-re.findall('>.*?<', result)
-
-    main_content = soup.find('div', {'id': 'user-repositories-list'})
-
-'''
-
 ######################################
 from datetime import datetime
 now = datetime.now()
@@ -167,9 +101,9 @@ time = now.strftime("%H:%M")
 import yagmail
 
 ### FAZ
-yag = yagmail.SMTP("davcza@googlemail.com",oauth2_file="client_secret_yagmail.json")
-EMAIL_TO = 'spyz@gmx.de' 
-EMAIL_SUBJECT = 'FAZ Artikel am ' + date + ' um ' + time
+yag = yagmail.SMTP("SENDERS-MAILADDRESS@googlemail.com",oauth2_file="client_secret_file.json")
+EMAIL_TO = 'RECIEPIENTS-ADDRESS@mailprovider.com' 
+EMAIL_SUBJECT = 'NEWS Artikel am ' + date + ' um ' + time
 EMAIL_BODY = get_news_content_FAZ()
 yag.send(to=EMAIL_TO, subject=EMAIL_SUBJECT, contents=EMAIL_BODY)
 
