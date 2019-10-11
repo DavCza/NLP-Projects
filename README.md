@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 # NLP-Projects
-=======
-<<<<<<< HEAD
-# NLP-Projects
+File: Scrap_News_Send_Summary_via_GMail.py
 =======
 A little function to web-scrap news with Requests and BeautifulSoup on Python.
 It visits the landing page, reads out all story titles and its hyperlinks, follows these hyperlinks and gets all paragraphs of the story.
